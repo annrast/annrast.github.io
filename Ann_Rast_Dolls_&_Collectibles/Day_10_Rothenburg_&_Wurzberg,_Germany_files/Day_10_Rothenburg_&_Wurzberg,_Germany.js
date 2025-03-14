@@ -1,0 +1,16 @@
+// Created by iWeb 3.0.4 local-build-20250228
+
+function writeMovie1()
+{detectBrowser();if(windowsInternetExplorer)
+{document.write('<object id="id4" classid="clsid:02BF25D5-8C17-4B23-BC80-D3488ABDDC6B" codebase="http://www.apple.com/qtactivex/qtplugin.cab" width="564" height="333" style="height: 333px; left: 15px; position: absolute; top: 1124px; width: 564px; z-index: 1; "><param name="src" value="Media/IMG_4775.MOV" /><param name="controller" value="true" /><param name="autoplay" value="false" /><param name="scale" value="tofit" /><param name="volume" value="100" /><param name="loop" value="false" /></object>');}
+else if(isiPhone)
+{document.write('<object id="id4" type="video/quicktime" width="564" height="333" style="height: 333px; left: 15px; position: absolute; top: 1124px; width: 564px; z-index: 1; "><param name="src" value="Day_10_Rothenburg_%26_Wurzberg,_Germany_files/IMG_4775-1.jpg"/><param name="target" value="myself"/><param name="href" value="../Media/IMG_4775.MOV"/><param name="controller" value="true"/><param name="scale" value="tofit"/></object>');}
+else
+{document.write('<object id="id4" type="video/quicktime" width="564" height="333" data="Media/IMG_4775.MOV" style="height: 333px; left: 15px; position: absolute; top: 1124px; width: 564px; z-index: 1; "><param name="src" value="Media/IMG_4775.MOV"/><param name="controller" value="true"/><param name="autoplay" value="false"/><param name="scale" value="tofit"/><param name="volume" value="100"/><param name="loop" value="false"/></object>');}}
+setTransparentGifURL('Media/transparent.gif');function applyEffects()
+{var registry=IWCreateEffectRegistry();registry.registerEffects({stroke_0:new IWPhotoFrame([IWCreateImage('Day_10_Rothenburg_%26_Wurzberg,_Germany_files/Formal_inset_01.png'),IWCreateImage('Day_10_Rothenburg_%26_Wurzberg,_Germany_files/Formal_inset_02.png'),IWCreateImage('Day_10_Rothenburg_%26_Wurzberg,_Germany_files/Formal_inset_03.png'),IWCreateImage('Day_10_Rothenburg_%26_Wurzberg,_Germany_files/Formal_inset_06.png'),IWCreateImage('Day_10_Rothenburg_%26_Wurzberg,_Germany_files/Formal_inset_09.png'),IWCreateImage('Day_10_Rothenburg_%26_Wurzberg,_Germany_files/Formal_inset_08.png'),IWCreateImage('Day_10_Rothenburg_%26_Wurzberg,_Germany_files/Formal_inset_07.png'),IWCreateImage('Day_10_Rothenburg_%26_Wurzberg,_Germany_files/Formal_inset_04.png')],null,0,0.800000,1.000000,1.000000,1.000000,1.000000,14.000000,14.000000,14.000000,14.000000,191.000000,262.000000,191.000000,262.000000,null,null,null,0.100000)});registry.applyEffects();}
+function hostedOnDM()
+{return false;}
+function onPageLoad()
+{loadMozillaCSS('Day_10_Rothenburg_&_Wurzberg,_Germany_files/Day_10_Rothenburg_&_Wurzberg,_GermanyMoz.css')
+adjustLineHeightIfTooBig('id1');adjustFontSizeIfTooBig('id1');adjustLineHeightIfTooBig('id2');adjustFontSizeIfTooBig('id2');adjustLineHeightIfTooBig('id3');adjustFontSizeIfTooBig('id3');adjustLineHeightIfTooBig('id5');adjustFontSizeIfTooBig('id5');adjustLineHeightIfTooBig('id6');adjustFontSizeIfTooBig('id6');adjustLineHeightIfTooBig('id7');adjustFontSizeIfTooBig('id7');adjustLineHeightIfTooBig('id8');adjustFontSizeIfTooBig('id8');fixAllIEPNGs('Media/transparent.gif');applyEffects()}
