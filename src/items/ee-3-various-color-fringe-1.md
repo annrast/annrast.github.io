@@ -1,6 +1,6 @@
 ---
 title: EE-3 Various color Fringe - 1”
-category: other-dolls
+category: fabric-lace-trims
 price: $1/yd only short pieces left.
 status: Available
 photos:

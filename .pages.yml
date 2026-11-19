@@ -71,6 +71,7 @@ content:
       - { name: key, label: "Code (don't change)", type: string, readonly: true }
       - { name: title, label: Category name, type: string }
       - { name: intro, label: Short intro (optional), type: text }
+      - { name: cover, label: Picture on the home page (optional), type: image }
   - name: about
     label: About & Contact page
     type: file

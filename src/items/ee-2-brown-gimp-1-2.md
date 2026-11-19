@@ -1,6 +1,6 @@
 ---
 title: EE-2 Brown Gimp - 1/2”
-category: other-dolls
+category: fabric-lace-trims
 price: $1.00/yd
 status: Available
 photos:

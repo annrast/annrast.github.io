@@ -4,11 +4,9 @@ layout: layout.njk
 {%- set cat = categories | findCat(category) -%}
 <p class="crumb"><a href="/">For Sale</a> › <a href="/for-sale/{{ cat.key }}/">{{ cat.title }}</a></p>
 <article class="item">
-  <div class="gallery">
+  <div class="photo-main">
   {%- if photos and photos.length %}
-    {%- for p in photos %}
-    <img src="{{ p }}" {{ p | dims | safe }} alt="{{ title }}{% if not loop.first %} – photo {{ loop.index }}{% endif %}" {% if loop.first %}fetchpriority="high"{% else %}loading="lazy"{% endif %} decoding="async">
-    {%- endfor %}
+    <img src="{{ photos[0] }}" {{ photos[0] | dims | safe }} alt="{{ title }}" fetchpriority="high" decoding="async">
   {%- else %}
     <div class="nophoto big">Photo coming soon</div>
   {%- endif %}
@@ -28,4 +26,11 @@ layout: layout.njk
     <a class="btn btn-ghost" href="mailto:{{ site.email }}?subject={{ ('Question about: ' + title + ' (sold)') | urlencode }}">Ask about this item</a>
     {% endif %}
   </div>
+  {%- if photos and photos.length > 1 %}
+  <div class="gallery">
+    {%- for p in photos %}{% if not loop.first %}
+    <img src="{{ p }}" {{ p | dims | safe }} alt="{{ title }} – photo {{ loop.index }}" loading="lazy" decoding="async">
+    {%- endif %}{% endfor %}
+  </div>
+  {%- endif %}
 </article>

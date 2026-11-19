@@ -14,7 +14,7 @@ statcounter: 1
   {%- set list = collections.item | inCategory(c.key) %}
   {%- set avail = list | notSold %}
   {%- if list.length %}
-  {%- set cover = list | coverPhoto %}
+  {%- set cover = c.cover or (list | coverPhoto) %}
   <li><a href="/for-sale/{{ c.key }}/">
     {% if cover %}<img src="{{ cover }}" {{ cover | dims | safe }} alt="" {% if loop.index > 2 %}loading="lazy"{% else %}fetchpriority="high"{% endif %} decoding="async">{% else %}<span class="nophoto">Photo coming soon</span>{% endif %}
     <span class="cat-title">{{ c.title }}</span>

@@ -1,6 +1,6 @@
 ---
 title: EE-1 Brown Taffeta Picot Ribbon
-category: other-dolls
+category: fabric-lace-trims
 price: 1” - $2/yd
 status: Available
 photos:
