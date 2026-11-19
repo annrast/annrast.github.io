@@ -9,12 +9,13 @@ content:
     path: src/items
     filename: "{primary}.md"
     view:
-      fields: [title, price, status, category]
+      fields: [title, todo, price, status, category]
       primary: title
       sort: [title, status, price]
-      search: [title, price, body]
+      search: [title, price, body, todo]
     fields:
       - { name: title, label: Name, type: string, required: true }
+      - { name: todo, label: "Please check (only you see this)", type: text, description: "What to check on this item. When it looks right, delete this text and click Save." }
       - name: category
         label: Category
         type: select
@@ -46,7 +47,6 @@ content:
         description: The first photo is the one shown in the list.
         options: { multiple: true }
       - { name: body, label: Description, type: text }
-      - { name: todo, label: "Notes for Winston (not shown on the site)", type: text }
       - { name: oldPage, label: Old page, type: string, hidden: true }
   - name: settings
     label: Site settings

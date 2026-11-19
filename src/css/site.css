@@ -115,7 +115,6 @@ figure.shadow img { box-shadow: 0 3px 8px rgba(0, 0, 0, .45); }
   font-size: 14px;
   color: rgb(103, 103, 103);
 }
-.statcounter-wrap { display: flex; justify-content: center; }
 
 /* iWeb "Photo Gray / Darkroom" theme used by six pages */
 body.theme-photogray { background: rgb(25, 27, 26) url(/img/shared/photogray-browser-bg.webp) repeat top left; }
