@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% if page.url == "/" %}{{ site.title }}{% else %}{{ title }} | {{ site.title }}{% endif %}</title>
+<meta name="description" content="{{ description or site.intro }}">
+{% if noindex %}<meta name="robots" content="noindex">{% endif %}
+{% if ogImage %}<meta property="og:image" content="{{ site.url }}{{ ogImage }}">{% endif %}
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="/css/redesign.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap top-in">
+    <a class="brand" href="/"><span class="brand-name">{{ site.siteTitle }}</span> <span class="brand-tag">{{ site.tagline }}</span></a>
+    <nav aria-label="Main">
+      <a href="/"{% if page.url == "/" %} aria-current="page"{% endif %}>For Sale</a>
+      <a href="/about/"{% if page.url == "/about/" %} aria-current="page"{% endif %}>About &amp; Contact</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+{{ content | safe }}
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <p><strong>Questions?</strong> Email <a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+    <p class="small"><a href="/my-travels/">My Travels</a> · <a href="/edit/">Edit this site</a></p>
+  </div>
+{%- if statcounter != null %}
+  <script>var sc_project={{ site.statcounter.project }};var sc_invisible=1;var sc_security="{{ site.statcounter.security }}";</script>
+  <script src="https://www.statcounter.com/counter/counter.js" async></script>
+{%- endif %}
+</footer>
+</body>
+</html>

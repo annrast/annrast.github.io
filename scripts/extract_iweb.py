@@ -386,7 +386,9 @@ def extract_page(f):
                     continue  # empty decorative shape
                 th = text_html(tc, rules, f)
                 if txt:
-                    items.append(Item('text', x, y, w, h, html=th, text=txt))
+                    items.append(Item('text', x, y, w, h, html=th, text=txt,
+                                      paras=[norm_text(pp.get_text('')) for pp in tc.find_all('p')],
+                                      links=[a.get('href') for a in tc.find_all('a') if a.get('href')]))
                 for i in inner_imgs:
                     srcp = os.path.join(SD, urllib.parse.unquote(i.get('src')))
                     if os.path.exists(srcp) and not is_blank(srcp):
@@ -625,6 +627,7 @@ def render_item(i, f):
             l, t = max(0, -ox), max(0, -oy)
             crop = (round(l), round(t), round(min(dw, l + i.w)), round(min(dh, t + i.h)))
         url, w, h = process_image(i.src, slug, dw, dh, crop)
+        i.url, i.dims = url, (w, h)
         cls = 'ph' + (' framed' if i.framed else '') + (' shadow' if i.shadow and not i.framed else '')
         alt = html.escape(norm_text(i.alt), quote=True)
         tag = f'<img src="{url}" width="{w}" height="{h}" alt="{alt}" loading="lazy" decoding="async">'
@@ -647,12 +650,16 @@ pages_dir = os.path.join(OUT, 'src', 'pages')
 os.makedirs(pages_dir, exist_ok=True)
 legacy = []
 first_img = {}
+dump = {}
 for f in files:
     items = postprocess(extract_page(f), f)
     if items:
         x0, y0, x1, y1 = bbox(items)
     canvas_w, theme = page_canvas(soups[f])
     body = render_items(items, 0, canvas_w, f)
+    dump[f] = {'title': titles[f], 'url': url_for(f), 'items': [
+        {k: v for k, v in it.__dict__.items() if k in ('kind', 'x', 'y', 'w', 'h', 'text', 'paras', 'links', 'href', 'url', 'dims', 'alt', 'lines', 'whole')}
+        for it in items if it.kind in ('text', 'photo', 'shapetext', 'panel')]}
     # mark first image eager (LCP)
     body = body.replace(' loading="lazy"', ' fetchpriority="high"', 1)
     if f == 'AnnRast.com.html':
@@ -700,6 +707,7 @@ os.makedirs(os.path.join(OUT, 'src', 'css'), exist_ok=True)
 open(os.path.join(OUT, 'src', 'css', 'text.css'), 'w').write('\n'.join(css) + '\n')
 os.makedirs(os.path.join(OUT, 'src', '_data'), exist_ok=True)
 json.dump(legacy, open(os.path.join(OUT, 'src', '_data', 'legacy.json'), 'w'), indent=1, ensure_ascii=False)
+json.dump(dump, open(os.path.join(OUT, 'scripts', 'iweb-items.json'), 'w'), indent=0, ensure_ascii=False)
 report['stats'] = {'pages': len(files), 'text_classes': len(global_classes), 'images_out': len(set(img_cache.values())),
                    'source_image_bytes_used': img_bytes_in}
 json.dump(report, open(os.path.join(OUT, 'migration-report.json'), 'w'), indent=1, ensure_ascii=False)

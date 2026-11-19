@@ -1,0 +1,27 @@
+---
+layout: layout.njk
+pagination:
+  data: categories
+  size: 1
+  alias: cat
+permalink: "/for-sale/{{ cat.key }}/"
+eleventyComputed:
+  title: "{{ cat.title }}"
+  description: "{{ cat.title }} for sale from Ann Rast’s doll collection."
+---
+{%- set list = collections.item | inCategory(cat.key) | sortItems %}
+{%- set avail = list | notSold %}
+{%- set sold = list | onlySold %}
+<p class="crumb"><a href="/">For Sale</a> › {{ cat.title }}</p>
+<h1>{{ cat.title }}</h1>
+{% if cat.intro %}<p class="lead">{{ cat.intro }}</p>{% endif %}
+<p class="count">{{ avail.length }} available{% if sold.length %} · {{ sold.length }} sold{% endif %}</p>
+<ul class="grid">
+{%- for it in avail %}{% include "card.njk" %}{% endfor %}
+</ul>
+{% if sold.length and site.showSoldItems %}
+<details class="sold">
+  <summary>Show {{ sold.length }} sold item{% if sold.length != 1 %}s{% endif %}</summary>
+  <ul class="grid">{%- for it in sold %}{% include "card.njk" %}{% endfor %}</ul>
+</details>
+{% endif %}

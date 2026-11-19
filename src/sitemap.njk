@@ -4,7 +4,12 @@ eleventyExcludeFromCollections: true
 ---
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-{%- for p in collections.page | sort(false, false, "url") %}{% if not p.data.blank %}
-  <url><loc>{{ site.url }}{{ p.url }}</loc></url>
+  <url><loc>{{ site.url }}/</loc></url>
+  <url><loc>{{ site.url }}/about/</loc></url>
+{%- for c in categories %}{% if (collections.item | inCategory(c.key)).length %}
+  <url><loc>{{ site.url }}/for-sale/{{ c.key }}/</loc></url>
 {%- endif %}{% endfor %}
+{%- for it in collections.item %}
+  <url><loc>{{ site.url }}{{ it.url }}</loc></url>
+{%- endfor %}
 </urlset>

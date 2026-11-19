@@ -1,0 +1,25 @@
+---
+layout: layout.njk
+title: For Sale
+statcounter: 1
+---
+<section class="hero">
+  <h1>{{ site.siteTitle }} <span>{{ site.tagline }}</span></h1>
+  <p class="lead">{{ site.intro }}</p>
+  <p><a class="btn" href="mailto:{{ site.email }}?subject={{ 'Question about your dolls' | urlencode }}">Email Ann</a> <a class="btn btn-ghost" href="/about/#how-to-buy">How to buy</a></p>
+</section>
+<h2>What’s for sale</h2>
+<ul class="cats">
+{%- for c in categories %}
+  {%- set list = collections.item | inCategory(c.key) %}
+  {%- set avail = list | notSold %}
+  {%- if list.length %}
+  {%- set cover = list | coverPhoto %}
+  <li><a href="/for-sale/{{ c.key }}/">
+    {% if cover %}<img src="{{ cover }}" {{ cover | dims | safe }} alt="" {% if loop.index > 2 %}loading="lazy"{% else %}fetchpriority="high"{% endif %} decoding="async">{% else %}<span class="nophoto">Photo coming soon</span>{% endif %}
+    <span class="cat-title">{{ c.title }}</span>
+    <span class="cat-count">{{ avail.length }} available</span>
+  </a></li>
+  {%- endif %}
+{%- endfor %}
+</ul>

@@ -1,0 +1,81 @@
+# Pages CMS (https://pagescms.org) — the editor Ann uses at app.pagescms.org.
+media:
+  input: src/img/uploads
+  output: /img/uploads
+content:
+  - name: items
+    label: Items for sale
+    type: collection
+    path: src/items
+    filename: "{primary}.md"
+    view:
+      fields: [title, price, status, category]
+      primary: title
+      sort: [title, status, price]
+      search: [title, price, body]
+    fields:
+      - { name: title, label: Name, type: string, required: true }
+      - name: category
+        label: Category
+        type: select
+        required: true
+        options:
+          values:
+            - { value: madame-alexander, label: Madame Alexander Dolls }
+            - { value: robert-tonner, label: Robert Tonner Dolls }
+            - { value: other-dolls, label: Other Dolls }
+            - { value: doll-clothes-accessories, label: "Doll Clothes, Shoes & Accessories" }
+            - { value: doll-furniture, label: "Doll Furniture & Tea Sets" }
+            - { value: teddy-bears, label: Teddy Bears }
+            - { value: figurines, label: Figurines }
+            - { value: fabric-lace-trims, label: "Fabric, Lace & Trims" }
+            - { value: patterns-books, label: "Patterns, Books & Catalogs" }
+            - { value: art-prints, label: "Art & Prints" }
+            - { value: collectibles, label: "Coca-Cola, Star Wars & Other Collectibles" }
+            - { value: furniture, label: "Furniture (full size)" }
+      - { name: price, label: Price, type: string, description: "For example $125 — leave blank to show no price" }
+      - name: status
+        label: Status
+        type: select
+        required: true
+        default: Available
+        options: { values: [Available, On Hold, Sold] }
+      - name: photos
+        label: Photos
+        type: image
+        description: The first photo is the one shown in the list.
+        options: { multiple: true }
+      - { name: body, label: Description, type: text }
+      - { name: todo, label: "Notes for Winston (not shown on the site)", type: text }
+      - { name: oldPage, label: Old page, type: string, hidden: true }
+  - name: settings
+    label: Site settings
+    type: file
+    path: src/_data/settings.json
+    format: json
+    fields:
+      - { name: siteTitle, label: Site name, type: string }
+      - { name: tagline, label: Tagline, type: string }
+      - { name: intro, label: Welcome text on the home page, type: text }
+      - { name: email, label: Email for "Ask about this item", type: string }
+      - { name: otherEmails, label: Other emails, type: string, list: true }
+      - { name: phone, label: Phone, type: string }
+      - { name: showSoldItems, label: Show sold items at the bottom of each category, type: boolean }
+  - name: categories
+    label: Categories
+    type: file
+    path: src/_data/categories.json
+    format: json
+    list: true
+    fields:
+      - { name: key, label: "Code (don't change)", type: string, readonly: true }
+      - { name: title, label: Category name, type: string }
+      - { name: intro, label: Short intro (optional), type: text }
+  - name: about
+    label: About & Contact page
+    type: file
+    path: src/about.md
+    fields:
+      - { name: title, label: Title, type: string }
+      - { name: description, label: Search-engine summary, type: string }
+      - { name: body, label: Page text, type: rich-text }

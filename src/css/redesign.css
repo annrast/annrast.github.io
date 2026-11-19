@@ -1,0 +1,98 @@
+/* Ann Rast Dolls & Collectibles — redesign prototype. Warm, large, high-contrast, mobile-first. */
+:root{
+  --bg:#fbf7f1; --paper:#fff; --ink:#1c1a17; --muted:#4f4a43; --line:#e4dccf;
+  --navy:#011993; --rose:#a3125f; --green:#1d6b34; --amber:#8a5a00; --grey:#5d5d5d;
+  --radius:14px; --serif:Georgia,"Times New Roman",serif; --sans:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{font-size:20px;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:1rem/1.55 var(--sans)}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--navy);text-underline-offset:3px}
+a:hover{color:var(--rose)}
+:focus-visible{outline:3px solid var(--rose);outline-offset:3px}
+h1,h2,h3{font-family:var(--serif);line-height:1.2;color:var(--ink);margin:1.2em 0 .5em}
+h1{font-size:1.9rem}h2{font-size:1.45rem}
+.wrap{max-width:1120px;margin:0 auto;padding:0 18px}
+.skip{position:absolute;left:-999px}.skip:focus{left:10px;top:10px;background:#fff;padding:8px;z-index:9}
+.small{font-size:.85rem;color:var(--muted)}
+.lead{font-size:1.1rem;color:var(--muted);max-width:40em}
+
+/* Header */
+.top{background:var(--paper);border-bottom:4px solid var(--rose)}
+.top-in{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px 20px;padding-top:12px;padding-bottom:12px}
+.brand{text-decoration:none;color:var(--ink);font-family:var(--serif);line-height:1.1}
+.brand-name{font-size:1.5rem;font-weight:700;color:var(--navy)}
+.brand-tag{display:block;font-size:.95rem;color:var(--rose);font-style:italic}
+.top nav{display:flex;gap:6px}
+.top nav a{display:inline-block;padding:10px 14px;border-radius:999px;text-decoration:none;font-weight:600;font-size:.95rem;color:var(--ink)}
+.top nav a[aria-current]{background:var(--navy);color:#fff}
+.top nav a:hover{background:#f1e8db;color:var(--ink)}
+.top nav a[aria-current]:hover{background:var(--navy);color:#fff}
+
+/* Buttons */
+.btn{display:inline-block;background:var(--rose);color:#fff;text-decoration:none;font-weight:700;font-size:1.05rem;padding:14px 24px;border-radius:999px;margin:6px 8px 6px 0;min-height:48px}
+.btn:hover{background:#7f0d4a;color:#fff}
+.btn-ghost{background:transparent;color:var(--navy);border:2px solid var(--navy)}
+.btn-ghost:hover{background:var(--navy);color:#fff}
+
+/* Home */
+.hero{padding:10px 0 4px}
+.hero h1{font-size:2.1rem;margin-bottom:.3em}
+.hero h1 span{display:block;color:var(--rose);font-style:italic;font-weight:400;font-size:.65em}
+.cats,.grid{list-style:none;margin:0;padding:0;display:grid;gap:16px}
+.cats{grid-template-columns:repeat(2,1fr)}
+.cats a,.card a{display:flex;flex-direction:column;height:100%;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;text-decoration:none;color:var(--ink);box-shadow:0 1px 3px rgba(60,40,20,.08)}
+.cats a:hover,.card a:hover{border-color:var(--rose);box-shadow:0 4px 14px rgba(60,40,20,.15);color:var(--ink)}
+.cats img,.card img,.nophoto{width:100%;aspect-ratio:1/1;object-fit:cover;background:#f1e8db}
+.nophoto{display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.85rem;text-align:center;padding:8px}
+.nophoto.big{aspect-ratio:4/3;font-size:1.1rem;border-radius:var(--radius)}
+.cat-title{font-family:var(--serif);font-weight:700;font-size:1.05rem;padding:10px 12px 0;line-height:1.25}
+.cat-count{padding:2px 12px 12px;color:var(--muted);font-size:.85rem}
+
+/* Category */
+.crumb{margin:18px 0 0;font-size:.9rem;color:var(--muted)}
+.count{font-weight:600;color:var(--muted)}
+.grid{grid-template-columns:repeat(2,1fr)}
+.card-body{display:flex;flex-direction:column;gap:4px;padding:10px 12px 12px;flex:1}
+.card-title{font-weight:600;font-size:.95rem;line-height:1.3}
+.price{font-weight:700;color:var(--ink)}
+.price.big{font-size:1.5rem;font-family:var(--serif)}
+.badge{align-self:flex-start;display:inline-block;font-size:.75rem;font-weight:700;letter-spacing:.02em;padding:3px 10px;border-radius:999px;color:#fff;background:var(--green)}
+.badge-on-hold{background:var(--amber)}
+.badge-sold{background:var(--grey)}
+.is-sold img{filter:grayscale(.6);opacity:.8}
+details.sold{margin:28px 0}
+details.sold summary{cursor:pointer;font-weight:700;font-size:1.05rem;padding:14px 18px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);margin-bottom:16px}
+
+/* Item */
+.item{display:grid;gap:20px;margin:10px 0 30px}
+.item h1{margin-top:.2em}
+.gallery{display:grid;gap:10px}
+.gallery img{border-radius:var(--radius);background:#f1e8db;width:100%}
+.item-meta{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.item-meta .badge{font-size:.9rem;padding:5px 14px}
+.desc{font-size:1.05rem;margin:14px 0 18px}
+.desc p{margin:0 0 .7em}
+
+/* About + edit */
+.about-photo{float:right;width:38%;max-width:320px;margin:8px 0 12px 18px;border-radius:var(--radius)}
+.steps li{margin-bottom:.8em}
+
+/* Footer */
+.foot{margin-top:40px;background:#f1e8db;border-top:1px solid var(--line);padding:18px 0 24px}
+.foot p{margin:.3em 0}
+
+@media (min-width:700px){
+  .cats{grid-template-columns:repeat(3,1fr)}
+  .grid{grid-template-columns:repeat(3,1fr)}
+  .hero h1{font-size:2.6rem}
+}
+@media (min-width:1000px){
+  .grid{grid-template-columns:repeat(4,1fr)}
+  .cats{grid-template-columns:repeat(4,1fr)}
+  .item{grid-template-columns:1.2fr 1fr;align-items:start}
+  .item-info{position:sticky;top:16px}
+  .gallery{grid-template-columns:1fr 1fr}
+  .gallery img:first-child{grid-column:1/-1}
+}

@@ -9,7 +9,7 @@ const FOLDER = "/Ann_Rast_Dolls_&_Collectibles";
 MAP.set(FOLDER, "/");
 MAP.set(FOLDER + "/", "/");
 MAP.set(FOLDER + "/index.html", "/");
-MAP.set(FOLDER + "/feed.xml", "/feed.xml");
+MAP.set(FOLDER + "/feed.xml", "/");
 
 export async function onRequest(context) {
   const url = new URL(context.request.url);

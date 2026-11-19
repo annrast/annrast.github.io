@@ -1,0 +1,31 @@
+---
+layout: layout.njk
+---
+{%- set cat = categories | findCat(category) -%}
+<p class="crumb"><a href="/">For Sale</a> › <a href="/for-sale/{{ cat.key }}/">{{ cat.title }}</a></p>
+<article class="item">
+  <div class="gallery">
+  {%- if photos and photos.length %}
+    {%- for p in photos %}
+    <img src="{{ p }}" {{ p | dims | safe }} alt="{{ title }}{% if not loop.first %} – photo {{ loop.index }}{% endif %}" {% if loop.first %}fetchpriority="high"{% else %}loading="lazy"{% endif %} decoding="async">
+    {%- endfor %}
+  {%- else %}
+    <div class="nophoto big">Photo coming soon</div>
+  {%- endif %}
+  </div>
+  <div class="item-info">
+    <h1>{{ title }}</h1>
+    <p class="item-meta">
+      {% if price %}<span class="price big">{{ price }}</span>{% endif %}
+      <span class="badge badge-{{ status | slugStatus }}">{{ status }}</span>
+    </p>
+    {% if content | striptags | trim %}<div class="desc">{{ content | safe }}</div>{% endif %}
+    {% if status != "Sold" %}
+    <a class="btn" href="mailto:{{ site.email }}?subject={{ ('Question about: ' + title + (' (' + price + ')' if price else '')) | urlencode }}&amp;body={{ ('Hi Ann,\n\nI am interested in this item:\n' + title + '\n' + site.url + page.url + '\n\n') | urlencode }}">Ask about this item</a>
+    <p class="small">Opens your email with the item name filled in. Prices do not include shipping. <a href="/about/#how-to-buy">How to buy</a></p>
+    {% else %}
+    <p>This item has been sold. <a href="/for-sale/{{ cat.key }}/">See what is still available in {{ cat.title }}</a>.</p>
+    <a class="btn btn-ghost" href="mailto:{{ site.email }}?subject={{ ('Question about: ' + title + ' (sold)') | urlencode }}">Ask about this item</a>
+    {% endif %}
+  </div>
+</article>

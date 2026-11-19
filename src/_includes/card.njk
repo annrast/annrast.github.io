@@ -1,0 +1,10 @@
+<li class="card{% if it.data.status == 'Sold' %} is-sold{% endif %}">
+  <a href="{{ it.url }}">
+    {% if it.data.photos and it.data.photos.length %}<img src="{{ it.data.photos[0] }}" {{ it.data.photos[0] | dims | safe }} alt="" loading="lazy" decoding="async">{% else %}<span class="nophoto">Photo coming soon</span>{% endif %}
+    <span class="card-body">
+      <span class="card-title">{{ it.data.title }}</span>
+      {% if it.data.price %}<span class="price">{{ it.data.price }}</span>{% endif %}
+      <span class="badge badge-{{ it.data.status | slugStatus }}">{{ it.data.status }}</span>
+    </span>
+  </a>
+</li>
