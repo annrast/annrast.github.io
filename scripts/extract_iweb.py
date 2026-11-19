@@ -440,6 +440,18 @@ def extract_page(f):
                               shadow=shadow, alt=alt if alt and not alt.startswith('shapeimage') else '',
                               panel=None, disp=(iw, ih), off=(px(ist.get('left')) + px(ist.get('margin-left')),
                                                                px(ist.get('top')) + px(ist.get('margin-top'))), shapeimg=False))
+    # iWeb clips the canvas (overflow:hidden): anything placed fully outside it was never visible
+    ftr_h = px(parse_style(ftr.get('style')).get('height')) if ftr else 0
+    canvas_h = hdr_h + body_h + ftr_h
+    canvas_w = page_canvas(soup)[0]
+    kept = []
+    for it in items:
+        if it.y >= canvas_h - 2 or it.b <= 0 or it.x >= canvas_w or it.r <= 0:
+            report['dropped'].append({'page': f, 'what': f'off-canvas {it.kind} (never visible on the live page)',
+                                      'detail': os.path.basename(getattr(it, 'src', '')) or getattr(it, 'text', '')[:60]})
+        else:
+            kept.append(it)
+    items = kept
     if 'writeMovie' in open(os.path.join(fdir, base + '.js'), encoding='utf-8', errors='replace').read() if os.path.exists(os.path.join(fdir, base + '.js')) else False:
         report['dropped'].append({'page': f, 'what': 'QuickTime embed of Media/IMG_4775.MOV (file missing from repo, plugin obsolete); removed'})
     return items

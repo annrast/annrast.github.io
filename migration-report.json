@@ -98,6 +98,11 @@
  ],
  "dropped": [
   {
+   "page": "...html",
+   "what": "off-canvas photo (never visible on the live page)",
+   "detail": "shapeimage_1.png"
+  },
+  {
    "page": "..html",
    "what": "right-click \"protection\" alert widget"
   },
@@ -107,12 +112,32 @@
    "markup": ""
   },
   {
+   "page": "DOLLS_FOR_SALE.html",
+   "what": "off-canvas photo (never visible on the live page)",
+   "detail": "Coca-Cola-Logo.jpg"
+  },
+  {
    "page": "Day_10_Rothenburg_&_Wurzberg,_Germany.html",
    "what": "QuickTime embed of Media/IMG_4775.MOV (file missing from repo, plugin obsolete); removed"
   },
   {
    "page": "Do_Not_Copy_Text_Box.html",
    "what": "right-click \"protection\" alert widget"
+  },
+  {
+   "page": "Fun_w_Friends.html",
+   "what": "off-canvas photo (never visible on the live page)",
+   "detail": "IMG_4865.jpg"
+  },
+  {
+   "page": "Fun_w_Friends.html",
+   "what": "off-canvas photo (never visible on the live page)",
+   "detail": "IMG_4857.jpg"
+  },
+  {
+   "page": "Patterns.html",
+   "what": "off-canvas photo (never visible on the live page)",
+   "detail": "DSCN0564.jpg"
   },
   {
    "page": "Wrist_Tags,_Patterns,_Books.html",
@@ -126,7 +151,7 @@
  "stats": {
   "pages": 176,
   "text_classes": 101,
-  "images_out": 1283,
-  "source_image_bytes_used": 50630795
+  "images_out": 1278,
+  "source_image_bytes_used": 50314396
  }
 }
