@@ -1,0 +1,7 @@
+---
+permalink: /_routes.json
+eleventyExcludeFromCollections: true
+---
+{%- set inc = ["/Ann_Rast_Dolls_%26_Collectibles", "/Ann_Rast_Dolls_%26_Collectibles/*"] -%}
+{%- for r in legacy -%}{%- if "&" in r.file -%}{%- set inc = (inc.push("/Ann_Rast_Dolls_&_Collectibles/" + (r.file | replace("&", "%26"))), inc) -%}{%- endif -%}{%- endfor -%}
+{{ {"version": 1, "include": inc, "exclude": []} | dump | safe }}

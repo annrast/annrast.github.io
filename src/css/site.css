@@ -43,7 +43,7 @@ a:hover { color: rgb(1, 25, 147); }
 }
 .site-nav { grid-column: 1; grid-row: 1; }
 .site-nav ul { list-style: none; margin: 0; padding: 0 0 0 26px; }
-.site-nav a { color: rgb(51, 51, 51); text-decoration: none; display: inline-block; padding: 1px 0; }
+.site-nav a { color: rgb(51, 51, 51); text-decoration: none; display: inline-block; padding: 3px 0; min-height: 24px; }
 .site-nav a:hover { color: rgb(69, 101, 162); }
 .site-nav a[aria-current="page"] { color: rgb(255, 47, 146); }
 

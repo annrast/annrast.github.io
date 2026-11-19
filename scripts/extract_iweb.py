@@ -302,7 +302,10 @@ def inline_html(el, rules, cur):
                 attrs += f' class="{cls}"'
             if ch.get('target') == '_blank' or (href and href.startswith('http')):
                 attrs += ' rel="noopener"'
-            parts.append(f'<a{attrs}>{inner}</a>')
+            if href:
+                parts.append(f'<a{attrs}>{inner}</a>')
+            else:  # iWeb self-link with empty href: plain text, keep its link colour
+                parts.append(f'<span class="{cls}">{inner}</span>' if cls else inner)
         elif ch.name == 'img':
             parts.append('')  # inline images inside text boxes are handled as items
         else:
