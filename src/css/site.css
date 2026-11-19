@@ -1,0 +1,130 @@
+/* Ann Rast Dolls & Collectibles — shared layout.
+   Colours, fonts and the pinstripe background come from the original iWeb theme. */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: rgb(96, 96, 96);
+  color: rgb(51, 51, 51);
+  font-family: 'Cochin', 'Times New Roman', serif;
+  font-size: 16px;
+  line-height: 1.25;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: rgb(69, 101, 162); }
+a:hover { color: rgb(1, 25, 147); }
+
+.page {
+  max-width: 949px;
+  margin: 0 auto;
+  min-height: 100vh;
+  background: rgb(207, 211, 207) url(/img/shared/pinstripe.webp) repeat top left;
+  padding: 0 16px 24px;
+  overflow-wrap: break-word;
+}
+
+/* Shared header: replaces the title + nav text boxes iWeb copied onto every page */
+.site-header {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 8px 16px;
+  padding: 20px 0 16px;
+}
+.site-title {
+  grid-column: 2;
+  font-family: 'Cochin', 'Times New Roman', serif;
+  font-style: italic;
+  font-size: clamp(26px, 6vw, 36px);
+  line-height: 1.22;
+  color: rgb(1, 25, 147);
+  text-align: center;
+  text-decoration: none;
+}
+.site-nav { grid-column: 1; grid-row: 1; }
+.site-nav ul { list-style: none; margin: 0; padding: 0 0 0 26px; }
+.site-nav a { color: rgb(51, 51, 51); text-decoration: none; display: inline-block; padding: 1px 0; }
+.site-nav a:hover { color: rgb(69, 101, 162); }
+.site-nav a[aria-current="page"] { color: rgb(255, 47, 146); }
+
+@media (max-width: 640px) {
+  .page { padding: 0 10px 20px; }
+  .site-header { grid-template-columns: 1fr; padding-top: 14px; }
+  .site-title { grid-column: 1; }
+  .site-nav { grid-column: 1; grid-row: 2; }
+  .site-nav ul { display: flex; flex-wrap: wrap; justify-content: center; gap: 0 4px; padding: 0; }
+  .site-nav a { padding: 10px 8px; min-height: 44px; }
+}
+
+/* Content blocks extracted from the iWeb canvas */
+main { display: flow-root; }
+.tb a { text-decoration: none; }
+.tb a:hover { text-decoration: underline; }
+.blk { max-width: 100%; }
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  gap: 14px 16px;
+}
+.col { min-width: 0; max-width: 100%; }
+.col > .blk:first-child { margin-top: 0 !important; }
+.tb { max-width: 100%; margin-inline: auto; }
+.tb p { margin: 0; }
+.tb p.sp { height: 1.1em; }
+.shape-text {
+  max-width: 100%;
+  margin: 0 auto;
+  white-space: pre-line;
+  font-style: italic;
+  font-size: 18px;
+  line-height: 1.35;
+  text-align: center;
+  color: rgb(69, 101, 162);
+}
+figure.ph { margin: 0 auto; max-width: 100%; }
+figure.ph img { width: 100%; }
+figure.framed img {
+  background: #fff;
+  border: 7px solid #fff;
+  box-shadow: 0 2px 7px rgba(0, 0, 0, .45);
+}
+figure.shadow img { box-shadow: 0 3px 8px rgba(0, 0, 0, .45); }
+.panel {
+  background: var(--panel-bg);
+  border: 7px solid var(--panel-border, #fff);
+  box-shadow: 0 3px 9px rgba(0, 0, 0, .45);
+  padding: 16px 10px;
+  max-width: 100%;
+}
+
+@media (max-width: 640px) {
+  /* stacked on phones: drop the desktop-only horizontal offsets */
+  .blk[style*="margin-left"] { margin-left: auto !important; margin-right: auto; }
+  .tb { width: auto !important; }
+  .shape-text { width: auto !important; }
+  .row { gap: 12px; }
+}
+
+.site-footer {
+  margin-top: 32px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(0, 0, 0, .15);
+  text-align: center;
+  font-size: 14px;
+  color: rgb(103, 103, 103);
+}
+.statcounter-wrap { display: flex; justify-content: center; }
+
+/* iWeb "Photo Gray / Darkroom" theme used by six pages */
+body.theme-photogray { background: rgb(25, 27, 26) url(/img/shared/photogray-browser-bg.webp) repeat top left; }
+.theme-photogray .page {
+  background: url(/img/shared/darkroom-spotlight.webp) no-repeat top center,
+              rgb(62, 64, 63) url(/img/shared/photogray-bg.webp) repeat top left;
+  color: rgb(235, 235, 235);
+}
+.theme-photogray .site-title { color: rgb(235, 235, 235); }
+.theme-photogray .site-nav a { color: rgb(203, 203, 203); }
+.theme-photogray .site-footer { color: rgb(203, 203, 203); border-top-color: rgba(255, 255, 255, .2); }
+.theme-photogray a { color: rgb(118, 214, 255); }

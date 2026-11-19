@@ -1,0 +1,22 @@
+---
+permalink: /_redirects
+eleventyExcludeFromCollections: true
+---
+# Cloudflare Pages redirects: every URL of the old iWeb site → its new home (301).
+# Paths are case-sensitive. The old folder name is listed both with a literal "&"
+# and percent-encoded ("%26"), because clients send either form.
+/index.html  /  301
+/Ann_Rast_Dolls_&_Collectibles  /  301
+/Ann_Rast_Dolls_&_Collectibles/  /  301
+/Ann_Rast_Dolls_&_Collectibles/index.html  /  301
+/Ann_Rast_Dolls_%26_Collectibles  /  301
+/Ann_Rast_Dolls_%26_Collectibles/  /  301
+/Ann_Rast_Dolls_%26_Collectibles/index.html  /  301
+/Ann_Rast_Dolls_&_Collectibles/feed.xml  /feed.xml  301
+/Ann_Rast_Dolls_%26_Collectibles/feed.xml  /feed.xml  301
+{%- for r in legacy %}
+{{ r.old | redirectPath | safe }}  {{ r.new }}  301
+{%- set enc = r.old | redirectPathEncoded %}{% if enc != (r.old | redirectPath) %}
+{{ enc | safe }}  {{ r.new }}  301
+{%- endif %}
+{%- endfor %}

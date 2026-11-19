@@ -1,0 +1,15 @@
+{
+  "name": "annrast-site",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "annrast.com — Ann Rast Dolls & Collectibles, rebuilt from the iWeb export with Eleventy",
+  "scripts": {
+    "build": "eleventy",
+    "serve": "eleventy --serve",
+    "extract": "python3 scripts/extract_iweb.py"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "3.1.8"
+  }
+}

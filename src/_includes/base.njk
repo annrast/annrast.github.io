@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% if page.url == "/" %}{{ site.title }}{% else %}{{ title }} | {{ site.title }}{% endif %}</title>
+<meta name="description" content="{{ description }}">
+{% if blank %}<meta name="robots" content="noindex">{% endif %}
+<meta property="og:title" content="{{ title }}">
+<meta property="og:description" content="{{ description }}">
+{% if ogImage %}<meta property="og:image" content="{{ site.url }}{{ ogImage }}">{% endif %}
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="/css/site.css">
+<link rel="stylesheet" href="/css/text.css">
+<link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="/feed.xml">
+</head>
+<body{% if theme %} class="theme-{{ theme }}"{% endif %}>
+<div class="page"{% if canvasWidth %} style="max-width:{{ canvasWidth }}px"{% endif %}>
+<header class="site-header">
+  <a class="site-title" href="/">Ann Rast<br>Dolls &amp; Collectibles</a>
+  <nav class="site-nav" aria-label="Main">
+    <ul>
+    {%- for item in site.nav %}
+      <li><a href="{{ item.url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.text }}</a></li>
+    {%- endfor %}
+    </ul>
+  </nav>
+</header>
+<main id="content">
+{{ content | safe }}
+</main>
+<footer class="site-footer">
+  <p>Ann Rast Dolls &amp; Collectibles</p>
+{%- if statcounter != null %}
+  <div class="statcounter-wrap">
+  <script>var sc_project={{ site.statcounter.project }};var sc_invisible={{ statcounter }};var sc_security="{{ site.statcounter.security }}";var sc_text=2;</script>
+  <script src="https://www.statcounter.com/counter/counter.js" async></script>
+  <noscript><div class="statcounter"><a title="web stats" href="https://statcounter.com/"><img class="statcounter" src="https://c.statcounter.com/{{ site.statcounter.project }}/0/{{ site.statcounter.security }}/{{ statcounter }}/" alt="web stats" width="1" height="1"></a></div></noscript>
+  </div>
+{%- endif %}
+</footer>
+</div>
+</body>
+</html>

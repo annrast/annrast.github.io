@@ -1,0 +1,132 @@
+{
+ "restored": [
+  {
+   "old": "....html",
+   "new": "/untitled-2/",
+   "title": "Ann Rast Dolls & Collectibles"
+  },
+  {
+   "old": "...html",
+   "new": "/wendy-goes-on-school-trip/",
+   "title": "Wendy Goes on School Trip"
+  },
+  {
+   "old": ".._1.html",
+   "new": "/untitled-3/",
+   "title": "Ann Rast Dolls & Collectibles"
+  },
+  {
+   "old": "..html",
+   "new": "/for-13-14-inch-dolls/",
+   "title": "For 13-14-inch Dolls"
+  },
+  {
+   "old": "_...................html",
+   "new": "/untitled-4/",
+   "title": "Ann Rast Dolls & Collectibles"
+  },
+  {
+   "old": "_....html",
+   "new": "/untitled-5/",
+   "title": "Ann Rast Dolls & Collectibles"
+  },
+  {
+   "old": "_...html",
+   "new": "/rufus-rutter/",
+   "title": "Rufus Rutter"
+  },
+  {
+   "old": "_..html",
+   "new": "/untitled-6/",
+   "title": "Ann Rast Dolls & Collectibles"
+  },
+  {
+   "old": "_.html",
+   "new": "/untitled-7/",
+   "title": "Ann Rast Dolls & Collectibles"
+  },
+  {
+   "old": "__._._._._._..html",
+   "new": "/walt-disney-classic-collection-figurines/",
+   "title": "Walt Disney Classic Collection Figurines"
+  },
+  {
+   "old": "__._._._._._._.._._._._._._..html",
+   "new": "/rufus-rutter-2/",
+   "title": "Rufus Rutter"
+  },
+  {
+   "old": "__._._._._._._..html",
+   "new": "/walt-disney-classic-collection-figurines-2/",
+   "title": "Walt Disney Classic Collection Figurines"
+  },
+  {
+   "old": "__._._._._._._._..html",
+   "new": "/walt-disney-classic-collection-figurines-3/",
+   "title": "Walt Disney Classic Collection Figurines"
+  },
+  {
+   "old": "__._._._._._._._._..html",
+   "new": "/walt-disney-classic-collection-figurines-4/",
+   "title": "Walt Disney Classic Collection Figurines"
+  },
+  {
+   "old": "__._._._._._._._._._..html",
+   "new": "/untitled-8/",
+   "title": "Ann Rast Dolls & Collectibles"
+  },
+  {
+   "old": "__._._._._._._._._._._..html",
+   "new": "/untitled-9/",
+   "title": "Ann Rast Dolls & Collectibles"
+  },
+  {
+   "old": "__._._._._._._._._._._._..html",
+   "new": "/untitled-10/",
+   "title": "Ann Rast Dolls & Collectibles"
+  },
+  {
+   "old": "__._._._._._._._._._._._._..html",
+   "new": "/untitled-11/",
+   "title": "Ann Rast Dolls & Collectibles"
+  },
+  {
+   "old": "__._._._._._._._._._._._1.html",
+   "new": "/untitled-12/",
+   "title": "Ann Rast Dolls & Collectibles"
+  }
+ ],
+ "dropped": [
+  {
+   "page": "..html",
+   "what": "right-click \"protection\" alert widget"
+  },
+  {
+   "page": "Boba_Fett.html",
+   "what": "empty HTML widget",
+   "markup": ""
+  },
+  {
+   "page": "Day_10_Rothenburg_&_Wurzberg,_Germany.html",
+   "what": "QuickTime embed of Media/IMG_4775.MOV (file missing from repo, plugin obsolete); removed"
+  },
+  {
+   "page": "Do_Not_Copy_Text_Box.html",
+   "what": "right-click \"protection\" alert widget"
+  },
+  {
+   "page": "Wrist_Tags,_Patterns,_Books.html",
+   "what": "right-click \"protection\" alert widget"
+  },
+  {
+   "page": "file.html",
+   "what": "right-click \"protection\" alert widget"
+  }
+ ],
+ "stats": {
+  "pages": 176,
+  "text_classes": 101,
+  "images_out": 1283,
+  "source_image_bytes_used": 50630795
+ }
+}
